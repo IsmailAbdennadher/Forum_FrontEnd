@@ -1,0 +1,19 @@
+@import 'https://mythemestore.com/beehive-preview/wp-content/themes/beehive/assets/css/swiper.min.css?ver=1.3.5.1' ;
+@import 'https://mythemestore.com/beehive-preview/wp-content/uploads/elementor/css/post-588.css?ver=1609699594' ;
+@import 'https://mythemestore.com/beehive-preview/wp-content/uploads/elementor/css/post-95.css?ver=1609699594' ;
+@import 'https://mythemestore.com/beehive-preview/wp-content/uploads/beehive-styles/dynamic-styles.css?ver=1.3.5.1' ;
+@import 'https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;ver=5.4.4' ;
+@import 'C:\AYMAX\Forum_Web\src\assets\wp-content\plugins\elementor\assets\font-awesome\css\fontawesome.minb683.css' ;
+@import 'C:\AYMAX\Forum_Web\src\assets\wp-content\plugins\elementor\assets\font-awesome\css\solid.minb683.css' ;
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
