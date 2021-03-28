@@ -71,7 +71,7 @@
 					</div>
 </div>
 
-<nav class="nav-component"><ul id="menu-forums-menu" class="nav-component-list forums-navbar"><li id="menu-item-589" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-589"><a href="index.html">All Forums</a></li>
+<nav class="nav-component"><ul id="menu-forums-menu" class="nav-component-list forums-navbar"><li id="menu-item-589" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-589"><a routerLink="/user/post">My topics</a></li>
 <li id="menu-item-592" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-592"><a href="https://mythemestore.com/beehive-preview/topics/">Topics</a></li>
 </ul></nav>
 
@@ -103,19 +103,18 @@
 	<li class="bbp-header">
 
 		<ul class="forum-titles">
-			<li class="bbp-forum-info">Forum</li>
-			<li class="bbp-forum-topic-count">Topics</li>
-			<li class="bbp-forum-reply-count">Posts</li>
+			<li class="bbp-forum-info">Post</li>
+			<li class="bbp-forum-topic-count">Comments</li>
+			<li class="bbp-forum-reply-count">Likes</li>
 			<li class="bbp-forum-freshness">Last Post</li>
 		</ul>
 
 	</li><!-- .bbp-header -->
 
-	<li class="bbp-body">
+	<li class="bbp-body" *ngFor="let p of posts;let i = index;">
 
-		
 			
-<ul id="bbp-forum-461" class="loop-item-0 bbp-forum-status-open bbp-forum-visibility-publish odd  post-461 forum type-forum status-publish hentry beehive-post animate-item slideInUp">
+<ul id="bbp-forum-461{{i}}" class="loop-item-0 bbp-forum-status-open bbp-forum-visibility-publish odd  post-461 forum type-forum status-publish hentry beehive-post animate-item slideInUp">
 
 	<li class="bbp-forum-info">
 
@@ -123,11 +122,11 @@
 
 		
 		
-		<h4 class="forum-title"><a class="bbp-forum-title" href="https://mythemestore.com/beehive-preview/groups/backpakers-club/forum/">Backpakers Club</a></h4>
+		<h4 class="forum-title"><a class="bbp-forum-title" href="https://mythemestore.com/beehive-preview/groups/backpakers-club/forum/">{{p.title}}</a></h4>
 
 		
 		
-		<div class="bbp-forum-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex</div>
+		<div class="bbp-forum-content">{{p.post_text}}</div>
 
 		
 		
@@ -136,9 +135,9 @@
 		
 	</li>
 
-	<li class="bbp-forum-topic-count bbp-topic-color">18</li>
+	<li class="bbp-forum-topic-count bbp-topic-color">{{p.comments.length}}</li>
 
-	<li class="bbp-forum-reply-count bbp-post-color">66</li>
+	<li class="bbp-forum-reply-count bbp-post-color">0</li>
 
 	<li class="bbp-forum-freshness">
 
@@ -158,275 +157,8 @@
 
 </ul><!-- #bbp-forum-461 -->
 
-		
-			
-<ul id="bbp-forum-265" class="loop-item-1 bbp-forum-status-open bbp-forum-visibility-publish even  post-265 forum type-forum status-publish hentry beehive-post animate-item slideInUp">
 
-	<li class="bbp-forum-info">
 
-		<span class="bbp-title-icon forum-icon color-primary h4"><i class="uil-comments"></i></span>
-
-		
-		
-		<h4 class="forum-title"><a class="bbp-forum-title" href="forum/beehive-theme/index.html">Beehive Theme</a></h4>
-
-		
-		
-		<div class="bbp-forum-content">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.</div>
-
-		
-		
-		
-		
-		
-	</li>
-
-	<li class="bbp-forum-topic-count bbp-topic-color">5</li>
-
-	<li class="bbp-forum-reply-count bbp-post-color">27</li>
-
-	<li class="bbp-forum-freshness">
-
-		
-		<span class="mute"><a href="topic/what-do-you-like-about-beehive-theme/index.html#post-2633" title="Reply To: What do you like about beehive theme?">2 weeks ago</a></span>
-
-		
-		<p class="bbp-topic-meta">
-
-			
-			<span class="bbp-topic-freshness-author">
-			<a href="https://mythemestore.com/beehive-preview/members/user/" title="View John Doe&#039;s profile" class="bbp-author-link"><span  class="bbp-author-avatar"><img alt='' src='assets/wp-content/uploads/avatars/3/6050ee5fe1cff-bpthumb.jpg' srcset='https://mythemestore.com/beehive-preview/wp-content/uploads/avatars/3/6050ee5fe1cff-bpthumb.jpg 2x' class='avatar avatar-14 photo' height='14' width='14' /></span><span  class="bbp-author-name">John Doe</span></a>			</span>
-
-			
-		</p>
-	</li>
-
-</ul><!-- #bbp-forum-265 -->
-
-		
-			
-<ul id="bbp-forum-478" class="loop-item-2 bbp-forum-status-open bbp-forum-visibility-publish odd  post-478 forum type-forum status-publish hentry beehive-post animate-item slideInUp">
-
-	<li class="bbp-forum-info">
-
-		<span class="bbp-title-icon forum-icon color-primary h4"><i class="uil-comments"></i></span>
-
-		
-		
-		<h4 class="forum-title"><a class="bbp-forum-title" href="https://mythemestore.com/beehive-preview/groups/climate-change/forum/">Climate Change</a></h4>
-
-		
-		
-		<div class="bbp-forum-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex</div>
-
-		
-		
-		
-		
-		
-	</li>
-
-	<li class="bbp-forum-topic-count bbp-topic-color">5</li>
-
-	<li class="bbp-forum-reply-count bbp-post-color">16</li>
-
-	<li class="bbp-forum-freshness">
-
-		
-		<span class="mute"><a href="https://mythemestore.com/beehive-preview/groups/climate-change/forum/topic/asdasdasd/#post-2640" title="Reply To: asdasdasd">1 week, 4 days ago</a></span>
-
-		
-		<p class="bbp-topic-meta">
-
-			
-			<span class="bbp-topic-freshness-author">
-			<a href="https://mythemestore.com/beehive-preview/members/user/" title="View John Doe&#039;s profile" class="bbp-author-link"><span  class="bbp-author-avatar"><img alt='' src='assets/wp-content/uploads/avatars/3/6050ee5fe1cff-bpthumb.jpg' srcset='https://mythemestore.com/beehive-preview/wp-content/uploads/avatars/3/6050ee5fe1cff-bpthumb.jpg 2x' class='avatar avatar-14 photo' height='14' width='14' /></span><span  class="bbp-author-name">John Doe</span></a>			</span>
-
-			
-		</p>
-	</li>
-
-</ul><!-- #bbp-forum-478 -->
-
-		
-			
-<ul id="bbp-forum-465" class="loop-item-3 bbp-forum-status-open bbp-forum-visibility-publish even  post-465 forum type-forum status-publish hentry beehive-post animate-item slideInUp">
-
-	<li class="bbp-forum-info">
-
-		<span class="bbp-title-icon forum-icon color-primary h4"><i class="uil-comments"></i></span>
-
-		
-		
-		<h4 class="forum-title"><a class="bbp-forum-title" href="https://mythemestore.com/beehive-preview/groups/cycling-club/forum/">Cycling Club</a></h4>
-
-		
-		
-		<div class="bbp-forum-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex</div>
-
-		
-		
-		
-		
-		
-	</li>
-
-	<li class="bbp-forum-topic-count bbp-topic-color">2</li>
-
-	<li class="bbp-forum-reply-count bbp-post-color">9</li>
-
-	<li class="bbp-forum-freshness">
-
-		
-		<span class="mute"><a href="https://mythemestore.com/beehive-preview/groups/cycling-club/forum/topic/hhh/" title="hhh">1 day, 10 hours ago</a></span>
-
-		
-		<p class="bbp-topic-meta">
-
-			
-			<span class="bbp-topic-freshness-author">
-			<a href="https://mythemestore.com/beehive-preview/members/user/" title="View John Doe&#039;s profile" class="bbp-author-link"><span  class="bbp-author-avatar"><img alt='' src='assets/wp-content/uploads/avatars/3/6050ee5fe1cff-bpthumb.jpg' srcset='https://mythemestore.com/beehive-preview/wp-content/uploads/avatars/3/6050ee5fe1cff-bpthumb.jpg 2x' class='avatar avatar-14 photo' height='14' width='14' /></span><span  class="bbp-author-name">John Doe</span></a>			</span>
-
-			
-		</p>
-	</li>
-
-</ul><!-- #bbp-forum-465 -->
-
-		
-			
-<ul id="bbp-forum-263" class="loop-item-4 bbp-forum-status-open bbp-forum-visibility-publish odd  post-263 forum type-forum status-publish hentry beehive-post animate-item slideInUp">
-
-	<li class="bbp-forum-info">
-
-		<span class="bbp-title-icon forum-icon color-primary h4"><i class="uil-comments"></i></span>
-
-		
-		
-		<h4 class="forum-title"><a class="bbp-forum-title" href="forum/general-discussions/index.html">General Discussions</a></h4>
-
-		
-		
-		<div class="bbp-forum-content">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.</div>
-
-		
-		
-		
-		
-		
-	</li>
-
-	<li class="bbp-forum-topic-count bbp-topic-color">5</li>
-
-	<li class="bbp-forum-reply-count bbp-post-color">28</li>
-
-	<li class="bbp-forum-freshness">
-
-		
-		<span class="mute"><a href="topic/what-is-the-most-dangerous-snake-in-the-world/page/2/index.html#post-2544" title="Reply To: What is the most dangerous snake in the world?">3 weeks, 3 days ago</a></span>
-
-		
-		<p class="bbp-topic-meta">
-
-			
-			<span class="bbp-topic-freshness-author">
-			<a href="https://mythemestore.com/beehive-preview/members/user/" title="View John Doe&#039;s profile" class="bbp-author-link"><span  class="bbp-author-avatar"><img alt='' src='assets/wp-content/uploads/avatars/3/6050ee5fe1cff-bpthumb.jpg' srcset='https://mythemestore.com/beehive-preview/wp-content/uploads/avatars/3/6050ee5fe1cff-bpthumb.jpg 2x' class='avatar avatar-14 photo' height='14' width='14' /></span><span  class="bbp-author-name">John Doe</span></a>			</span>
-
-			
-		</p>
-	</li>
-
-</ul><!-- #bbp-forum-263 -->
-
-		
-			
-<ul id="bbp-forum-454" class="loop-item-5 bbp-forum-status-open bbp-forum-visibility-publish even  post-454 forum type-forum status-publish hentry beehive-post animate-item slideInUp">
-
-	<li class="bbp-forum-info">
-
-		<span class="bbp-title-icon forum-icon color-primary h4"><i class="uil-comments"></i></span>
-
-		
-		
-		<h4 class="forum-title"><a class="bbp-forum-title" href="forum/music-lovers/index.html">Music Lovers</a></h4>
-
-		
-		
-		<div class="bbp-forum-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex</div>
-
-		
-		
-		
-		
-		
-	</li>
-
-	<li class="bbp-forum-topic-count bbp-topic-color">5</li>
-
-	<li class="bbp-forum-reply-count bbp-post-color">10</li>
-
-	<li class="bbp-forum-freshness">
-
-		
-		<span class="mute"><a href="topic/defcon-ctf/index.html#post-2601" title="Reply To: DEFCON CTF">2 weeks, 4 days ago</a></span>
-
-		
-		<p class="bbp-topic-meta">
-
-			
-			<span class="bbp-topic-freshness-author">
-			<a href="https://mythemestore.com/beehive-preview/members/user/" title="View John Doe&#039;s profile" class="bbp-author-link"><span  class="bbp-author-avatar"><img alt='' src='assets/wp-content/uploads/avatars/3/6050ee5fe1cff-bpthumb.jpg' srcset='https://mythemestore.com/beehive-preview/wp-content/uploads/avatars/3/6050ee5fe1cff-bpthumb.jpg 2x' class='avatar avatar-14 photo' height='14' width='14' /></span><span  class="bbp-author-name">John Doe</span></a>			</span>
-
-			
-		</p>
-	</li>
-
-</ul><!-- #bbp-forum-454 -->
-
-		
-			
-<ul id="bbp-forum-261" class="loop-item-6 bbp-forum-status-open bbp-forum-visibility-publish odd  post-261 forum type-forum status-publish hentry beehive-post animate-item slideInUp">
-
-	<li class="bbp-forum-info">
-
-		<span class="bbp-title-icon forum-icon color-primary h4"><i class="uil-comments"></i></span>
-
-		
-		
-		<h4 class="forum-title"><a class="bbp-forum-title" href="forum/programming-and-hacking/index.html">Programming</a></h4>
-
-		
-		
-		<div class="bbp-forum-content">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.</div>
-
-		
-		
-		
-		
-		
-	</li>
-
-	<li class="bbp-forum-topic-count bbp-topic-color">3</li>
-
-	<li class="bbp-forum-reply-count bbp-post-color">11</li>
-
-	<li class="bbp-forum-freshness">
-
-		
-		<span class="mute"><a href="topic/how-do-i-hack-my-ex-girlfriends-facebook-account/index.html#post-2590" title="Reply To: How do I hack my ex girlfriends facebook account?">2 weeks, 5 days ago</a></span>
-
-		
-		<p class="bbp-topic-meta">
-
-			
-			<span class="bbp-topic-freshness-author">
-			<a href="https://mythemestore.com/beehive-preview/members/user/" title="View John Doe&#039;s profile" class="bbp-author-link"><span  class="bbp-author-avatar"><img alt='' src='assets/wp-content/uploads/avatars/3/6050ee5fe1cff-bpthumb.jpg' srcset='https://mythemestore.com/beehive-preview/wp-content/uploads/avatars/3/6050ee5fe1cff-bpthumb.jpg 2x' class='avatar avatar-14 photo' height='14' width='14' /></span><span  class="bbp-author-name">John Doe</span></a>			</span>
-
-			
-		</p>
-	</li>
-
-</ul><!-- #bbp-forum-261 -->
 
 		
 	</li><!-- .bbp-body -->

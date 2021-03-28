@@ -7,6 +7,7 @@ import { CookieService } from "./Cookie.service";
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
+    //@ts-ignore
     user: User|null;
     constructor(private http: HttpClient, private cookieService: CookieService) {
     }

@@ -3,13 +3,23 @@ import { CommonModule } from '@angular/common';
 
 import { PagesRoutingModule } from './pages-routing.module';
 import { HomeComponent } from './home/home.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { UserpostsComponent } from './userposts/userposts.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, UserpostsComponent],
   imports: [
     CommonModule,
-    PagesRoutingModule
+    BrowserModule,
+    PagesRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule
   ]
 })
 export class PagesModule { }

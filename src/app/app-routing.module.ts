@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 
-const routes: Routes = [{ path: 'home', component : HomeComponent },
+const routes: Routes = [
 { path: '' , redirectTo:'home', pathMatch: 'full'},
  { path:'', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) }];
 

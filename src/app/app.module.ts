@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { JwtInterceptor } from './Core/Interceptors/jwt.interceptor';
+import { PagesModule } from './pages/pages.module';
 
 
 @NgModule({
@@ -18,9 +20,10 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    PagesModule,
     RouterModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
