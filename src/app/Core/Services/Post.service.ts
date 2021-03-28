@@ -26,7 +26,7 @@ export class PostService {
         return this.http.get<Post[]>(environment.BASE_END_POINT + 'post/user/'+iduser);
     }
     getPostById(id: Number){
-        return this.http.get<Observable<Post>>(environment.BASE_END_POINT + 'post/get/' + id);
+        return this.http.get<Post>(environment.BASE_END_POINT + 'post/get/' + id);
     }
     getNBComments(id : Number){
         return this.http.get<Number>(environment.BASE_END_POINT + 'post/get/number/'+ id );

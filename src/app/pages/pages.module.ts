@@ -8,10 +8,12 @@ import { UserpostsComponent } from './userposts/userposts.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { CommentComponent } from './comment/comment.component';
+import { PostDetailsComponent } from './post-details/post-details.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, UserpostsComponent],
+  declarations: [HomeComponent, UserpostsComponent, CommentComponent, PostDetailsComponent],
   imports: [
     CommonModule,
     BrowserModule,
