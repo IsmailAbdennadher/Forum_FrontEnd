@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/Core/Services/Auth.service';
+import { CookieService } from 'src/app/Core/Services/Cookie.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -12,12 +14,13 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private route: ActivatedRoute, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private route: ActivatedRoute, private router: Router,
+    private authService: AuthService,private cookieService: CookieService) { }
 
   ngOnInit(): void {
     this.loadScripts();
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required]],
+      username: ['', [Validators.required]],
       password: ['', Validators.required],
     });
 
@@ -38,8 +41,17 @@ loadScripts() {
  } 
 
  onSubmit(){
-   console.log(this.loginForm.value);
-   alert('halt!');
+   this.authService.login(this.loginForm.value.username,this.loginForm.value.password).subscribe(token =>{
+    this.cookieService.deleteCookie('currentUser');
+    if (token) {
+      this.cookieService.setCookie('currentUser', JSON.stringify(token), 1);
+      this.router.navigate(['/home']);
+      /* this.userService
+        .getAccountInfo(this.f.email.value)
+        .subscribe(this.handleResponseUser, this.handleError); */
+    }
+
+   });
  }
 
  get f() { return this.loginForm.controls; }

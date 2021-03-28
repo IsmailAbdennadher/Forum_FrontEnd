@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  BASE_END_POINT: "http://localhost:8080/api/",
   scripts: ["assets/wp-includes/js/jquery/jquery4a5f.js?ver=1.12.4-assets/wp",
   "assets/wp-includes/js/jquery/jquery-migrate.min330a.js?ver=1.4.1"
   ,"assets/wp-includes/js/plupload/moxie.mine34c.js?ver=1.3.5"

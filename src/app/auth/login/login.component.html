@@ -285,9 +285,9 @@
                         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" id="element-login-form" class="beehive-login-form element-login-form" name="element-login" novalidate>
                             <div class="form-group">
                                 <div class="user-name">
-                                    <label class="screen-reader-text">Email/username</label>
+                                    <label class="screen-reader-text">Username</label>
                                     <span class="icon"><i class="uil-user"></i></span>
-                                    <input formControlName="email" type="text" class="username-control" required name="log" value="" placeholder="Email or username">
+                                    <input formControlName="username" type="text" class="username-control" required name="log" value="" placeholder="Username">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -408,10 +408,10 @@
                     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" id="modal-login-form" class="beehive-login-form modal-login-form" name="modal-login-form">
                         <div class="form-group">
                             <div class="user-name">
-                                <label class="screen-reader-text">Email/username</label>
-                                <span class="icon"><i class="uil-user"></i></span>
-                                <input formControlName="email" type="text" id="modal-username" class="username-control" required name="log" value="" placeholder="Email or username">
-                            </div>
+								<label class="screen-reader-text">Username</label>
+								<span class="icon"><i class="uil-user"></i></span>
+								<input formControlName="username" type="text" class="username-control" required name="log" value="" placeholder="Username">
+							</div>
                         </div>
                         <div class="form-group">
                             <div class="pass">
