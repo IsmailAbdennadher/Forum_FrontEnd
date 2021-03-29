@@ -190,7 +190,7 @@
 
 		
 		
-		<p><strong><a class="bbp-topic-permalink" href="https://mythemestore.com/beehive-preview/forums/topic/what-do-you-like-about-beehive-theme/">{{p.title}}</a></strong></p>
+		<p><strong><a class="bbp-topic-permalink" routerLink="/postdetails/{{p.id}}">{{p.title}}</a></strong></p>
 
 		
 		
@@ -208,7 +208,7 @@
 		
 	</li>
 
-	<li class="bbp-topic-voice-count bbp-topic-color">2</li>
+	<li class="bbp-topic-voice-count bbp-topic-color">{{p.comments.length}}</li>
 
 	<li class="bbp-topic-reply-count bbp-post-color">		
 					15			</li>

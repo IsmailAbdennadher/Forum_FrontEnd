@@ -6,7 +6,6 @@ export class Comment {
     id?: number;
     //@ts-ignore
     comment_text : string;
-    //@ts-ignore
     dateofpublication : Date;
     //@ts-ignore
     attachement : string;

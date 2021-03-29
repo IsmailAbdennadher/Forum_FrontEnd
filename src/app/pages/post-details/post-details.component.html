@@ -17,8 +17,8 @@
 						</div>
 					</div>
 																		<ul class="connections">
-																	<li><span class="count">0</span><p class="mute">Friends</p></li>
-																									<li><span class="count">5</span><p class="mute">Groups</p></li>
+																			<li><span class="count">0</span><p class="mute">Comments</p></li>
+																			<li><span class="count">{{nbUserPosts}}</span><p class="mute">Posts</p></li>
 															</ul>
 																		</div>
 		</div>
@@ -157,7 +157,7 @@
 	<div class="bbp-breadcrumb"><p><a href="https://mythemestore.com/beehive-preview" class="bbp-breadcrumb-home">Home 1</a> <span class="bbp-breadcrumb-sep">&rsaquo;</span> <a href="https://mythemestore.com/beehive-preview/forums/" class="bbp-breadcrumb-root">Forums</a> <span class="bbp-breadcrumb-sep">&rsaquo;</span> <span class="bbp-breadcrumb-sep">&rsaquo;</span> <span class="bbp-breadcrumb-current">What do you like about beehive theme?</span></p></div>
 	
 	
-		<div class="bbp-template-notice info"><ul><li class="bbp-topic-description">This topic has 15 replies, 2 voices, and was last updated <a href="https://mythemestore.com/beehive-preview/forums/topic/what-do-you-like-about-beehive-theme/page/2/#post-2724" title="Reply To: What do you like about beehive theme?">4 minutes ago</a> by <a href="https://mythemestore.com/beehive-preview/members/user/" title="View John Doe&#039;s profile" class="bbp-author-link"><span  class="bbp-author-avatar"><img alt='' src='https://mythemestore.com/beehive-preview/wp-content/uploads/avatars/3/6050ee5fe1cff-bpthumb.jpg' srcset='https://mythemestore.com/beehive-preview/wp-content/uploads/avatars/3/6050ee5fe1cff-bpthumb.jpg 2x' class='avatar avatar-14 photo' height='14' width='14' /></span><span  class="bbp-author-name">John Doe</span></a>.</li></ul></div>
+		<div class="bbp-template-notice info"><ul><li class="bbp-topic-description" *ngIf="nbReplies">This topic has {{nbReplies}} replies, (static)=> 2 voices, and was last updated <a href="https://mythemestore.com/beehive-preview/forums/topic/what-do-you-like-about-beehive-theme/page/2/#post-2724" title="Reply To: What do you like about beehive theme?">4 minutes ago</a> by <a href="https://mythemestore.com/beehive-preview/members/user/" title="View John Doe&#039;s profile" class="bbp-author-link"><span  class="bbp-author-avatar"><img alt='' src='https://mythemestore.com/beehive-preview/wp-content/uploads/avatars/3/6050ee5fe1cff-bpthumb.jpg' srcset='https://mythemestore.com/beehive-preview/wp-content/uploads/avatars/3/6050ee5fe1cff-bpthumb.jpg 2x' class='avatar avatar-14 photo' height='14' width='14' /></span><span  class="bbp-author-name">John Doe</span></a>.</li></ul></div>
 		
 		
 			
@@ -172,7 +172,6 @@
 
 			
 				Posts
-				<span id="subscription-toggle">&nbsp;|&nbsp;<span id="subscribe-286"   class="is-subscribed"><a href="/beehive-preview/forums/topic/what-do-you-like-about-beehive-theme/?action=bbp_unsubscribe&#038;object_id=286&#038;object_type=post&#038;_wpnonce=699e8b1484" class="subscription-toggle" data-bbp-object-id="286" data-bbp-object-type="0" data-bbp-nonce="699e8b1484" rel="nofollow">Unsubscribe</a></span></span>
 				
 			
 		</div><!-- .bbp-reply-content -->
@@ -208,7 +207,7 @@
 		<a href="https://mythemestore.com/beehive-preview/members/razor/" title="View Sephiroth&#039;s profile" class="bbp-author-link"><span  class="bbp-author-avatar">
             <img alt='' src='https://mythemestore.com/beehive-preview/wp-content/uploads/avatars/1/6005b5c330c63-bpfull.png' srcset='https://mythemestore.com/beehive-preview/wp-content/uploads/avatars/1/6005b5c330c63-bpfull.png 2x' 
             class='avatar avatar-80 photo' height='80' width='80' /></span><span  class="bbp-author-name">
-                {{"user"}}</span></a>
+                {{post.post_owner.username}}</span></a>
             <div class="bbp-author-role">Member</div>
 		
 		

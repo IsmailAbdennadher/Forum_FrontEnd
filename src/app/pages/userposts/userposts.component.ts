@@ -27,6 +27,7 @@ export class UserpostsComponent implements OnInit {
     this.user = JSON.parse(this.cookieService.getCookie('currentUser')!);
     this.postService.getUserPosts().subscribe(data => {
       this.posts = data;
+      this.cookieService.setCookie('nbUserPosts',this.posts.length.toString(),1);
       console.log(data);
     });
   }
@@ -55,6 +56,8 @@ export class UserpostsComponent implements OnInit {
      p.dateofpublication = new Date();
      this.postService.createPost(p).subscribe(data => {
        alert('post added !');
+       this.ngOnInit();
+       document.location.reload;
      },
      (e)=>{console.log(e);});
    }

@@ -17,6 +17,10 @@ export class CommentComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadScripts();
+    this.commentService.getCommentById(this.comment.id!).subscribe(data => {
+      console.log(data);
+      this.comment.comment_owner = data.comment_owner;
+    });
   }
 
   loadScripts() { 

@@ -19,16 +19,22 @@ export class PostDetailsComponent implements OnInit {
   user : User;
   //comments : Comment[];
   post : Post;
+  nbReplies: Number;
+  nbUserPosts:Number;
 
   constructor(private cookieService: CookieService, private postService: PostService, private formBuilder: FormBuilder,
     private route: ActivatedRoute,private router: Router ) { }
 
   ngOnInit(): void {
+    this.nbUserPosts = Number(this.cookieService.getCookie('nbUserPosts'));
     this.loadScripts();
     const postId = Number(this.route.snapshot.paramMap.get('id'));
     this.user = JSON.parse(this.cookieService.getCookie('currentUser')!);
     this.postService.getPostById(postId).subscribe(data => {
       this.post = data;
+      this.postService.getNBComments(this.post.id!).subscribe(totalComments =>{
+        this.nbReplies = totalComments;
+      });
     });
   }
 

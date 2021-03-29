@@ -18,5 +18,8 @@ export class CommentService {
     getCommentsByPostId(id: Number) {
         return this.http.get<Comment>(environment.BASE_END_POINT + 'comment/post/get' + id);
     }
+    getCommentById(id: Number){
+        return this.http.get<Comment>(environment.BASE_END_POINT + 'comment/get/' + id);
+    }
 
 }
