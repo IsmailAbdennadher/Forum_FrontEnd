@@ -3,6 +3,7 @@ import { Observable, Subject } from 'rxjs';
 import { Post } from 'src/app/Core/Models/post.model';
 import { User } from 'src/app/Core/Models/user.model';
 import { CookieService } from 'src/app/Core/Services/Cookie.service';
+import { LikeService } from 'src/app/Core/Services/Like.service';
 import { PostService } from 'src/app/Core/Services/Post.service';
 import { environment } from 'src/environments/environment';
 
@@ -15,13 +16,21 @@ export class HomeComponent implements OnInit {
 
   user : any;
   posts : Post[];
-  constructor(private cookieService: CookieService, private postService: PostService) { }
+  nbPostLikes: Map<string,Number>;
+  constructor(private cookieService: CookieService, private postService: PostService,private likeService : LikeService) {
+    this.nbPostLikes = new Map<string,Number>();
+   }
 
   ngOnInit(): void {
     this.loadScripts();
     this.user = JSON.parse(this.cookieService.getCookie('currentUser')!);
     this.postService.getAll().subscribe(data => {
       this.posts = data;
+      this.posts.forEach((val,index)=>{
+        this.likeService.countLikesPost(val.id!).subscribe(postLikeCounts=>{
+          this.nbPostLikes.set(val.id!.toString(),postLikeCounts);
+        });
+      });
       console.log(data);
     });
   }
@@ -38,13 +47,4 @@ export class HomeComponent implements OnInit {
       document.getElementsByTagName('head')[0].appendChild(node); 
     }
    }
-   getNbComments(id : Number){
-     console.log(id);
-    /*  let subject = new Subject<Number>();
-     this.postService.getNBComments(id).subscribe((nb : Number) => {
-        nb != undefined ? nb : 0;
-        subject.next(nb);
-     });
-     return subject.asObservable(); */
-   } 
 }

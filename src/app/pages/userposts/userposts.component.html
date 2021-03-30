@@ -17,8 +17,8 @@
 						</div>
 					</div>
 																		<ul class="connections">
-																	<li><span class="count">0</span><p class="mute">Comments</p></li>
-																									<li><span class="count">{{posts.length}}</span><p class="mute">Posts</p></li>
+																	<li><span class="count" *ngIf="nbUserComments">{{nbUserComments}}</span><p class="mute">Comments</p></li>
+																									<li><span class="count">{{nbUserPosts}}</span><p class="mute">Posts</p></li>
 															</ul>
 																		</div>
 		</div>
@@ -118,7 +118,7 @@
 <li id="menu-item-91" class="bp-menu bp-notifications-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-91"><a href="https://mythemestore.com/beehive-preview/members/user/notifications/">Notifications</a></li>
 <li id="menu-item-92" class="bp-menu bp-messages-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-92"><a href="https://mythemestore.com/beehive-preview/members/user/messages/">Messages</a></li>
 <li id="menu-item-93" class="bp-menu bp-settings-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-93"><a href="https://mythemestore.com/beehive-preview/members/user/settings/">Settings</a></li>
-<li id="menu-item-94" class="bp-menu bp-logout-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-94"><a href="https://mythemestore.com/beehive-preview/wp-login.php?action=logout&#038;redirect_to=https%3A%2F%2Fmythemestore.com%2Fbeehive-preview%2Fforums%2Fforum%2Fbeehive-theme%2F&#038;_wpnonce=6814d54cdb">Log Out</a></li>
+<li id="menu-item-94" class="bp-menu bp-logout-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-94"><a (click)="logout()" routerLink="/">Log Out</a></li>
 </ul>			</div>
 		</li>
 	</ul>
@@ -158,13 +158,8 @@
 			<div class="single-forum-title">
 			<h1 class="title h2">My topics</h1>
 		</div>
-		
-	
-		<div class="bbp-template-notice info"><ul><li class="bbp-forum-description">This topics has 5 member, 22 comments, and was last updated <a href="https://mythemestore.com/beehive-preview/forums/topic/what-do-you-like-about-beehive-theme/#post-2633" title="Reply To: What do you like about beehive theme?">2 weeks, 3 days ago</a> by <a href="https://mythemestore.com/beehive-preview/members/user/" title="View John Doe&#039;s profile" class="bbp-author-link"><span  class="bbp-author-avatar"><img alt='' src='https://mythemestore.com/beehive-preview/wp-content/uploads/avatars/3/6050ee5fe1cff-bpthumb.jpg' srcset='https://mythemestore.com/beehive-preview/wp-content/uploads/avatars/3/6050ee5fe1cff-bpthumb.jpg 2x' class='avatar avatar-14 photo' height='14' width='14' /></span><span  class="bbp-author-name">{{user.username}}</span></a>.</li></ul></div>
-		
-		
+				
 			
-
 <ul id="bbp-forum-265" class="bbp-topics">
 
 	<li class="bbp-header">
@@ -177,6 +172,7 @@
 		</ul>
 
 	</li>
+	<div *ngIf="posts && posts.length===0" class="bbp-template-notice info text-center"><ul><li class="bbp-forum-description">You don't have any post.Create one! </li></ul></div>
 
 	<li class="bbp-body" *ngFor="let p of posts;let i = index;">
 
@@ -210,8 +206,8 @@
 
 	<li class="bbp-topic-voice-count bbp-topic-color">{{p.comments.length}}</li>
 
-	<li class="bbp-topic-reply-count bbp-post-color">		
-					15			</li>
+	<li class="bbp-topic-reply-count bbp-post-color" *ngIf="nbPostLikes && (nbPostLikes.get(p.id!.toString()) != undefined)">		
+					{{nbPostLikes.get(p.id!.toString())}}			</li>
 
 	<li class="bbp-topic-freshness">
 

@@ -11,13 +11,13 @@
 								<img src="https://mythemestore.com/beehive-preview/wp-content/uploads/avatars/3/6050ee5fd1ef2-bpfull.jpg" alt="John Doe" class="avatar" />
 							</a>
 												<div class="profile-name">
-															<a href="https://mythemestore.com/beehive-preview/members/user/" class="name ellipsis">John Doe</a>
+													<a href="https://mythemestore.com/beehive-preview/members/user/" class="name ellipsis">{{user.username}}</a>
 																						<small>Member</small>
 														
 						</div>
 					</div>
 																		<ul class="connections">
-																			<li><span class="count">0</span><p class="mute">Comments</p></li>
+																			<li><span class="count" *ngIf="nbUserComments">{{nbUserComments}}</span><p class="mute">Comments</p></li>
 																			<li><span class="count">{{nbUserPosts}}</span><p class="mute">Posts</p></li>
 															</ul>
 																		</div>
@@ -105,7 +105,7 @@
 				</li>
 							<li class="mini-cart nav-item"><a href="https://mythemestore.com/beehive-preview/cart/" class="cart-contents nav-link" title="View Cart"><i class="uil-cart"></i><span class="count">1</span></a></li>		<li id="myaccount-url-list" class="nav-item dropdown myaccount-url-list">
 			<a class="nav-link dropdown-toggle" href="#" id="nav_my_account" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<img alt='' src='https://mythemestore.com/beehive-preview/wp-content/uploads/avatars/3/6050ee5fe1cff-bpthumb.jpg' srcset='https://mythemestore.com/beehive-preview/wp-content/uploads/avatars/3/6050ee5fd1ef2-bpfull.jpg 2x' class='avatar avatar-30 photo' height='30' width='30' />									<span class="account-name">@ user</span>
+				<img alt='' src='https://mythemestore.com/beehive-preview/wp-content/uploads/avatars/3/6050ee5fe1cff-bpthumb.jpg' srcset='https://mythemestore.com/beehive-preview/wp-content/uploads/avatars/3/6050ee5fd1ef2-bpfull.jpg 2x' class='avatar avatar-30 photo' height='30' width='30' />									<span class="account-name">@ {{user.username}}</span>
 							</a>
 			<div class="dropdown-menu" aria-labelledby="nav_my_account">
 					<ul id="menu-account-menu" class="member-account-menu"><li id="menu-item-84" class="bp-menu bp-activity-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-84"><a href="https://mythemestore.com/beehive-preview/members/user/activity/">Timeline</a></li>
@@ -118,7 +118,7 @@
 <li id="menu-item-91" class="bp-menu bp-notifications-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-91"><a href="https://mythemestore.com/beehive-preview/members/user/notifications/">Notifications</a></li>
 <li id="menu-item-92" class="bp-menu bp-messages-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-92"><a href="https://mythemestore.com/beehive-preview/members/user/messages/">Messages</a></li>
 <li id="menu-item-93" class="bp-menu bp-settings-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-93"><a href="https://mythemestore.com/beehive-preview/members/user/settings/">Settings</a></li>
-<li id="menu-item-94" class="bp-menu bp-logout-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-94"><a href="https://mythemestore.com/beehive-preview/wp-login.php?action=logout&#038;redirect_to=https%3A%2F%2Fmythemestore.com%2Fbeehive-preview%2Fforums%2Ftopic%2Fwhat-do-you-like-about-beehive-theme%2F&#038;_wpnonce=6814d54cdb">Log Out</a></li>
+<li id="menu-item-94" class="bp-menu bp-logout-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-94"><a (click)="logout()" routerLink="/">Log Out</a></li>
 </ul>			</div>
 		</li>
 	</ul>
@@ -154,7 +154,7 @@
 						
 <div id="bbpress-forums" class="bbpress-wrapper">
 
-	<div class="bbp-breadcrumb"><p><a href="https://mythemestore.com/beehive-preview" class="bbp-breadcrumb-home">Home 1</a> <span class="bbp-breadcrumb-sep">&rsaquo;</span> <a href="https://mythemestore.com/beehive-preview/forums/" class="bbp-breadcrumb-root">Forums</a> <span class="bbp-breadcrumb-sep">&rsaquo;</span> <span class="bbp-breadcrumb-sep">&rsaquo;</span> <span class="bbp-breadcrumb-current">What do you like about beehive theme?</span></p></div>
+	<div class="bbp-breadcrumb"><p><a href="https://mythemestore.com/beehive-preview" class="bbp-breadcrumb-home">Home 1</a> <span class="bbp-breadcrumb-sep">&rsaquo;</span> <a href="https://mythemestore.com/beehive-preview/forums/" class="bbp-breadcrumb-root">Forums</a> <span class="bbp-breadcrumb-sep">&rsaquo;</span> <span class="bbp-breadcrumb-sep">&rsaquo;</span> <span class="bbp-breadcrumb-current" *ngIf="post">{{post.title}}</span></p></div>
 	
 	
 		<div class="bbp-template-notice info"><ul><li class="bbp-topic-description" *ngIf="nbReplies">This topic has {{nbReplies}} replies, (static)=> 2 voices, and was last updated <a href="https://mythemestore.com/beehive-preview/forums/topic/what-do-you-like-about-beehive-theme/page/2/#post-2724" title="Reply To: What do you like about beehive theme?">4 minutes ago</a> by <a href="https://mythemestore.com/beehive-preview/members/user/" title="View John Doe&#039;s profile" class="bbp-author-link"><span  class="bbp-author-avatar"><img alt='' src='https://mythemestore.com/beehive-preview/wp-content/uploads/avatars/3/6050ee5fe1cff-bpthumb.jpg' srcset='https://mythemestore.com/beehive-preview/wp-content/uploads/avatars/3/6050ee5fe1cff-bpthumb.jpg 2x' class='avatar avatar-14 photo' height='14' width='14' /></span><span  class="bbp-author-name">John Doe</span></a>.</li></ul></div>
@@ -233,14 +233,14 @@
 
 			
 
-<div class="bbp-pagination">
+<!-- <div class="bbp-pagination">
 	<div class="bbp-pagination-links beehive-pagination">
 
 		<span aria-current="page" class="page-numbers current">1</span>
 <a class="page-numbers" href="https://mythemestore.com/beehive-preview/forums/topic/what-do-you-like-about-beehive-theme/page/2/">2</a>
 <a class="next page-numbers" href="https://mythemestore.com/beehive-preview/forums/topic/what-do-you-like-about-beehive-theme/page/2/">&rarr;</a>
 	</div>
-</div>
+</div> -->
 
 
 		
@@ -248,11 +248,11 @@
 
 	<div id="new-reply-286" class="bbp-reply-form">
 
-		<form id="new-post" name="new-post" method="post">
+		<form [formGroup]="commentForm" name="new-post" (ngSubmit)="onSubmit()" novalidate>
 
 			
 			<fieldset class="bbp-form">
-				<legend>Reply To: What do you like about beehive theme?</legend>
+				<legend *ngIf="post">Reply To: {{post.title}}</legend>
 
 				
 				
@@ -265,36 +265,10 @@
 					
 					<div class="bbp-the-content-wrapper"><div id="wp-bbp_reply_content-wrap" class="wp-core-ui wp-editor-wrap html-active"><link rel='stylesheet' id='dashicons-css'  href='https://mythemestore.com/beehive-preview/wp-includes/css/dashicons.min.css?ver=5.4.4' type='text/css' media='all' />
 <link rel='stylesheet' id='editor-buttons-css'  href='https://mythemestore.com/beehive-preview/wp-includes/css/editor.min.css?ver=5.4.4' type='text/css' media='all' />
-<div id="wp-bbp_reply_content-editor-container" class="wp-editor-container"><div id="qt_bbp_reply_content_toolbar" class="quicktags-toolbar"></div><textarea class="bbp-the-content wp-editor-area" rows="12" cols="40" name="bbp_reply_content" id="bbp_reply_content"></textarea></div>
+<div id="wp-bbp_reply_content-editor-container" class="wp-editor-container"><div id="qt_bbp_reply_content_toolbar" class="quicktags-toolbar"></div><textarea formControlName="comment_text" class="bbp-the-content wp-editor-area" rows="12" cols="40" name="bbp_reply_content" id="bbp_reply_content"></textarea></div>
 </div>
 
-</div>
-					
-					
-					
-						
-						<p>
-							<label for="bbp_topic_tags">Tags:</label><br />
-							<input type="text" value="wordpress" size="40" name="bbp_topic_tags" id="bbp_topic_tags"  />
-						</p>
-
-						
-					
-					
-						
-						<p>
-
-							<input name="bbp_topic_subscription" id="bbp_topic_subscription" type="checkbox" value="bbp_subscribe" checked='checked' />
-
-							
-								<label for="bbp_topic_subscription">Notify me of follow-up replies via email</label>
-
-							
-						</p>
-
-						
-					
-					
+</div>					
 					
 					<div class="bbp-submit-wrapper">
 
