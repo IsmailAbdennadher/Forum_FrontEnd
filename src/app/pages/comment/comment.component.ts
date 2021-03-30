@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Comment } from 'src/app/Core/Models/comment.model';
+import { User } from 'src/app/Core/Models/user.model';
 import { CommentService } from 'src/app/Core/Services/Comment.service';
 import { CookieService } from 'src/app/Core/Services/Cookie.service';
+import { LikeService } from 'src/app/Core/Services/Like.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -11,30 +13,40 @@ import { environment } from 'src/environments/environment';
 })
 export class CommentComponent implements OnInit {
 
-  constructor(private cookieService: CookieService, private commentService: CommentService) { }
+  constructor(private cookieService: CookieService, private commentService: CommentService, private serviceLike: LikeService) {
+    this.nbLikes = 0;
+   }
 
+  user : User;
   @Input() comment : Comment;
+  isLiked : boolean;
+  nbLikes : Number;
 
   ngOnInit(): void {
-    this.loadScripts();
+    this.serviceLike.countLikesComment(this.comment.id!).subscribe(count => {
+      this.nbLikes = count;
+    });
+    this.user = JSON.parse(this.cookieService.getCookie('currentUser')!);
+    this.serviceLike.isLikedComment(this.user.id!,this.comment.id!).subscribe( commentLiked => {
+      this.isLiked = commentLiked;
+    });
     this.commentService.getCommentById(this.comment.id!).subscribe(data => {
-      console.log(data);
       this.comment.comment_owner = data.comment_owner;
     });
   }
 
-  loadScripts() { 
-  
-    // This array contains all the files/CDNs 
-    const dynamicScripts = environment.scripts;
-    dynamicScripts.push('https://mythemestore.com/beehive-preview/wp-content/themes/beehive/buddypress/js/beehive-bp-like.min.js?ver=1.3.5.1');
-    for (let i = 0; i < dynamicScripts.length; i++) { 
-      const node = document.createElement('script'); 
-      node.src = dynamicScripts[i]; 
-      node.type = 'text/javascript'; 
-      node.async = false; 
-      document.getElementsByTagName('head')[0].appendChild(node); 
-    }
-   }
 
+   like(id : Number){
+     this.serviceLike.likeComment(Number(this.user.id),id).subscribe(data =>{
+       if(data != null){
+          this.isLiked = true;
+        }
+       else{
+          this.isLiked = false;
+        }
+        this.serviceLike.countLikesComment(this.comment.id!).subscribe(count => {
+          this.nbLikes = count;
+        });
+     });
+   }
 }

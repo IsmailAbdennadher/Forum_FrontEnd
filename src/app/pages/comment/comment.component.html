@@ -21,5 +21,5 @@
          srcset="https://mythemestore.com/beehive-preview/wp-content/uploads/avatars/1/6005b5c330c63-bpfull.png 2x" height="80" width="80" class="avatar avatar-80 photo"></span>
          <span class="bbp-author-name">{{comment.comment_owner.username}}</span></a><div class="bbp-author-role">Keymaster</div></div
          ><div *ngIf="comment.comment_owner" class="bbp-reply-content"><p>{{comment.comment_text}}</p></div></div>
-             <a href="#" class="button bp-primary-action like" id="like-activity-38{{comment.id}}" title="like this" style="display: inline-block;"><i class="uil-thumbs-up"></i>Like<span class="count">1</span></a>
+             <a (click)="like(comment.id!)" class="button bp-primary-action like" id="unlike-activity-38{{comment.id}}" title="{{isLiked ? 'UnLike' : 'Like' }} this" style="display: inline-block;"><i class="uil-thumbs-up"></i><span>{{isLiked ? "UnLike" : "Like" }}</span><span *ngIf="nbLikes > 0" class="count">({{nbLikes}})</span></a>
             </div><!-- #post-286 -->

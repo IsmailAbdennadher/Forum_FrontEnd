@@ -14,12 +14,17 @@ export class CommentService {
     getAll() : Observable<Comment[]> {
         return this.http.get<Comment[]>(environment.BASE_END_POINT + 'comment/all');
     }
-
+    createComment(comment: Comment) {
+        return this.http.post<Comment>(environment.BASE_END_POINT + 'comment/create', comment );
+        }
     getCommentsByPostId(id: Number) {
         return this.http.get<Comment>(environment.BASE_END_POINT + 'comment/post/get' + id);
     }
     getCommentById(id: Number){
         return this.http.get<Comment>(environment.BASE_END_POINT + 'comment/get/' + id);
+    }
+    getCountCommentsByUser(idUser : Number){
+        return this.http.get<Number>(environment.BASE_END_POINT + 'comment/count/user/' + idUser);
     }
 
 }
