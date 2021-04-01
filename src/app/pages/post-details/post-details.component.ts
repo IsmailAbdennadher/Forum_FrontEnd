@@ -8,6 +8,7 @@ import { User } from 'src/app/Core/Models/user.model';
 import { AuthService } from 'src/app/Core/Services/Auth.service';
 import { CommentService } from 'src/app/Core/Services/Comment.service';
 import { CookieService } from 'src/app/Core/Services/Cookie.service';
+import { LikeService } from 'src/app/Core/Services/Like.service';
 import { PostService } from 'src/app/Core/Services/Post.service';
 import { environment } from 'src/environments/environment';
 
@@ -25,9 +26,11 @@ export class PostDetailsComponent implements OnInit {
   nbUserPosts:Number;
   nbUserComments: Number;
   commentForm: FormGroup;
+  isLiked : boolean;
 
   constructor(private cookieService: CookieService, private postService: PostService, private formBuilder: FormBuilder,
-    private route: ActivatedRoute,private router: Router,private authService : AuthService , private commentService : CommentService ) {
+    private route: ActivatedRoute,private router: Router,private authService : AuthService , private commentService : CommentService
+    , private serviceLike: LikeService ) {
       this.nbUserComments = 0;
       this.nbUserPosts = 0;
      }
@@ -48,6 +51,9 @@ export class PostDetailsComponent implements OnInit {
       this.post = data;
       this.postService.getNBComments(this.post.id!).subscribe(totalComments =>{
         this.nbReplies = totalComments;
+      });
+      this.serviceLike.isLikedPost(this.user.id!,this.post.id!).subscribe( postLiked => {
+        this.isLiked = postLiked;
       });
     });
   }
@@ -91,5 +97,18 @@ export class PostDetailsComponent implements OnInit {
       });
     },
     (e)=>{console.log(e);});
+  }
+  like(id : Number){
+    this.serviceLike.likePost(Number(this.user.id),id).subscribe(data =>{
+      if(data != null){
+         this.isLiked = true;
+       }
+      else{
+         this.isLiked = false;
+       }
+       this.serviceLike.countLikesPost(this.post.id!).subscribe(count => {
+         this.post.likes = count;
+       });
+    });
   }
 }

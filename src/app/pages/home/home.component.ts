@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
 
   user : any;
   posts : Post[];
-  nbPostLikes: Map<string,Number>;
+  nbPostLikes: Map<string, Number>;
   constructor(private cookieService: CookieService, private postService: PostService,private likeService : LikeService) {
     this.nbPostLikes = new Map<string,Number>();
    }
@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
     this.postService.getAll().subscribe(data => {
       this.posts = data;
       this.posts.forEach((val,index)=>{
-        this.likeService.countLikesPost(val.id!).subscribe(postLikeCounts=>{
+        this.likeService.countLikesPostAndComments(val.id!).subscribe(postLikeCounts=>{
           this.nbPostLikes.set(val.id!.toString(),postLikeCounts);
         });
       });

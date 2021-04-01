@@ -9,4 +9,6 @@ export class Post {
     attachement? : string;
     post_owner : User;
     comments : Comment[];
+    likes? : Number;
+    dateSincePosted? : string
 }

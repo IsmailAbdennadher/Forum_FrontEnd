@@ -14,24 +14,21 @@ import { environment } from 'src/environments/environment';
 export class CommentComponent implements OnInit {
 
   constructor(private cookieService: CookieService, private commentService: CommentService, private serviceLike: LikeService) {
-    this.nbLikes = 0;
    }
 
   user : User;
   @Input() comment : Comment;
   isLiked : boolean;
-  nbLikes : Number;
 
   ngOnInit(): void {
-    this.serviceLike.countLikesComment(this.comment.id!).subscribe(count => {
-      this.nbLikes = count;
-    });
     this.user = JSON.parse(this.cookieService.getCookie('currentUser')!);
     this.serviceLike.isLikedComment(this.user.id!,this.comment.id!).subscribe( commentLiked => {
       this.isLiked = commentLiked;
     });
     this.commentService.getCommentById(this.comment.id!).subscribe(data => {
       this.comment.comment_owner = data.comment_owner;
+      this.comment.likes = data.likes!;
+      this.comment.dateSinceCommented = data.dateSinceCommented;
     });
   }
 
@@ -45,7 +42,7 @@ export class CommentComponent implements OnInit {
           this.isLiked = false;
         }
         this.serviceLike.countLikesComment(this.comment.id!).subscribe(count => {
-          this.nbLikes = count;
+          this.comment.likes = count;
         });
      });
    }

@@ -22,7 +22,8 @@ export class UserpostsComponent implements OnInit {
   postForm : FormGroup;
   nbUserComments: Number;
   nbUserPosts: number;
-  nbPostLikes: Map<string,Number>;
+  nbPostLikes: Map<string, Number>;
+
   constructor(private cookieService: CookieService, private postService: PostService, private formBuilder: FormBuilder,
     private commentService : CommentService,private authService : AuthService,private router: Router,private likeService : LikeService) {
       this.nbUserComments = 0;
@@ -40,14 +41,17 @@ export class UserpostsComponent implements OnInit {
       this.nbUserComments = count;
     });
     this.loadScripts();
+    //Web service to all post of a user
     this.postService.getUserPosts().subscribe(data => {
       this.posts = data;
+      //here for each post we use a web service to count likes on a post using a map(key=post_id,val=nblikes)
       this.posts.forEach((val,index)=>{
-        this.likeService.countLikesPost(val.id!).subscribe(postLikeCounts=>{
+        this.likeService.countLikesPostAndComments(val.id!).subscribe(postLikeCounts=>{
           this.nbPostLikes.set(val.id!.toString(),postLikeCounts);
         });
       });
       this.nbUserPosts = data.length;
+      //we save the nb of posts that a user has to use it in other pages
       this.cookieService.setCookie('nbUserPosts',this.posts.length.toString(),1);
       console.log(data);
     });

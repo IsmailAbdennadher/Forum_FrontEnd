@@ -187,17 +187,16 @@
 
 	<div class="bbp-meta">
 
-		<span class="bbp-reply-post-date">{{post.dateofpublication}}</span>
+		<span class="bbp-reply-post-date" title="{{post.dateofpublication}}">{{post.dateSincePosted}}</span>
 
 		
 		<a href="https://mythemestore.com/beehive-preview/forums/topic/what-do-you-like-about-beehive-theme/#post-286" class="bbp-reply-permalink">#{{post.id}}</a>
 
 		
-		<span class="bbp-admin-links"><a role="button" href="/beehive-preview/forums/topic/what-do-you-like-about-beehive-theme/#new-post" class="bbp-topic-reply-link" rel="nofollow">Reply</a></span>
+		<span class="bbp-admin-links"><a role="button" href="/beehive-preview/forums/topic/what-do-you-like-about-beehive-theme/#new-post" class="bbp-topic-reply-link" rel="nofollow">Post</a></span>
 		
 	</div><!-- .bbp-meta -->
-
-</div><!-- #post-286 -->
+	
 
 <div class="loop-item-0 user-id-1 bbp-parent-forum-265 bbp-parent-topic-265 bbp-reply-position-1 odd topic-author  post-286 topic type-topic status-publish hentry topic-tag-wordpress beehive-post animate-item slideInUp">
 
@@ -218,10 +217,14 @@
 		
 		<p>{{post.post_text}}</p>
 
-		
+
 	</div><!-- .bbp-reply-content -->
 
+
 </div><!-- .reply -->
+<a (click)="like(post.id!)" class="button bp-primary-action like" id="unlike-activity-38{{post.id}}" title="{{isLiked ? 'UnLike' : 'Like' }} this" style="display: inline-block;"><i class="uil-thumbs-up"></i><span>{{isLiked ? "UnLike" : "Like" }}</span><span *ngIf="post.likes! > 0" class="count">({{post.likes!}})</span></a>
+
+</div><!-- #post-286 -->
 
 <app-comment *ngFor="let p of post.comments;let i = index;" [comment]="p"></app-comment>	
 	

@@ -13,4 +13,6 @@ export class Comment {
     comment_owner : User;
     //@ts-ignore
     belong_post : Post;
+    likes? : Number;
+    dateSinceCommented? : string
 }

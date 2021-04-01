@@ -26,4 +26,7 @@ export class LikeService {
     isLikedPost(idUser: Number,idPost: Number){
         return this.http.get<any>(environment.BASE_END_POINT + 'like/post/isLiked/'+ idUser+'/'+idPost);
     }
+    countLikesPostAndComments(idPost: Number){
+        return this.http.get<Number>(environment.BASE_END_POINT + 'like/post/count/all/'+idPost);
+    }
 }
