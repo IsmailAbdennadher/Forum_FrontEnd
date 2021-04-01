@@ -1,0 +1,134 @@
+	/* Cover image */
+    #buddypress #item-header-cover-image {
+        min-height: 280px;
+        margin-bottom: 1em;
+    }
+
+    #buddypress #item-header-cover-image:after {
+        clear: both;
+        content: "";
+        display: table;
+    }
+
+    #buddypress #header-cover-image {
+        height: 280px;
+        background-image: url( https://mythemestore.com/beehive-preview/wp-content/uploads/buddypress/members/3/cover-image/6064b88040814-bp-cover-image.jpg );
+    }
+
+    #buddypress #create-group-form #header-cover-image {
+        position: relative;
+        margin: 1em 0;
+    }
+
+    .bp-user #buddypress #item-header {
+        padding-top: 0;
+    }
+
+    #buddypress #item-header-cover-image #item-header-avatar {
+        margin-top: 175px;
+        float: left;
+        overflow: visible;
+        width:auto;
+    }
+
+    #buddypress div#item-header #item-header-cover-image #item-header-content {
+        clear: both;
+        float: left;
+        margin-left: 220px;
+        margin-top: -190px;
+        width:auto;
+    }
+
+    body.single-item.groups #buddypress div#item-header #item-header-cover-image #item-header-content,
+    body.single-item.groups #buddypress div#item-header #item-header-cover-image #item-actions {
+        margin-top: 280px;
+        margin-left: 0;
+        clear: none;
+        max-width: 50%;
+    }
+
+    body.single-item.groups #buddypress div#item-header #item-header-cover-image #item-actions {
+        padding-top: 20px;
+        max-width: 20%;
+    }
+
+    
+
+    #buddypress div#item-header-cover-image h2 a,
+    #buddypress div#item-header-cover-image h2 {
+        color: #FFF;
+        text-rendering: optimizelegibility;
+        text-shadow: 0px 0px 3px rgba( 0, 0, 0, 0.8 );
+        margin: 0 0 .6em;
+        font-size:200%;
+    }
+
+    #buddypress #item-header-cover-image #item-header-avatar img.avatar {
+        border: solid 2px #FFF;
+        background: rgba( 255, 255, 255, 0.8 );
+    }
+
+    #buddypress #item-header-cover-image #item-header-avatar a {
+        border: none;
+        text-decoration: none;
+    }
+
+    #buddypress #item-header-cover-image #item-buttons {
+        margin: 0 0 10px;
+        padding: 0 0 5px;
+    }
+
+    #buddypress #item-header-cover-image #item-buttons:after {
+        clear: both;
+        content: "";
+        display: table;
+    }
+
+    @media screen and (max-width: 782px) {
+        #buddypress #item-header-cover-image #item-header-avatar,
+        .bp-user #buddypress #item-header #item-header-cover-image #item-header-avatar,
+        #buddypress div#item-header #item-header-cover-image #item-header-content {
+            width:100%;
+            text-align:center;
+        }
+
+        #buddypress #item-header-cover-image #item-header-avatar a {
+            display:inline-block;
+        }
+
+        #buddypress #item-header-cover-image #item-header-avatar img {
+            margin:0;
+        }
+
+        #buddypress div#item-header #item-header-cover-image #item-header-content,
+        body.single-item.groups #buddypress div#item-header #item-header-cover-image #item-header-content,
+        body.single-item.groups #buddypress div#item-header #item-header-cover-image #item-actions {
+            margin:0;
+        }
+
+        body.single-item.groups #buddypress div#item-header #item-header-cover-image #item-header-content,
+        body.single-item.groups #buddypress div#item-header #item-header-cover-image #item-actions {
+            max-width: 100%;
+        }
+
+        #buddypress div#item-header-cover-image h2 a,
+        #buddypress div#item-header-cover-image h2 {
+            color: inherit;
+            text-shadow: none;
+            margin:25px 0 0;
+            font-size:200%;
+        }
+
+        #buddypress #item-header-cover-image #item-buttons div {
+            float:none;
+            display:inline-block;
+        }
+
+        #buddypress #item-header-cover-image #item-buttons:before {
+            content:"";
+        }
+
+        #buddypress #item-header-cover-image #item-buttons {
+            margin: 5px 0;
+        }
+    }

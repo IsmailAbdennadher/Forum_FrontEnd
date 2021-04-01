@@ -10,10 +10,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CommentComponent } from './comment/comment.component';
 import { PostDetailsComponent } from './post-details/post-details.component';
+import { UserprofilComponent } from './userprofil/userprofil.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, UserpostsComponent, CommentComponent, PostDetailsComponent],
+  declarations: [HomeComponent, UserpostsComponent, CommentComponent, PostDetailsComponent, UserprofilComponent],
   imports: [
     CommonModule,
     BrowserModule,

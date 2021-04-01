@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { Post } from 'src/app/Core/Models/post.model';
 import { User } from 'src/app/Core/Models/user.model';
+import { AuthService } from 'src/app/Core/Services/Auth.service';
 import { CookieService } from 'src/app/Core/Services/Cookie.service';
 import { LikeService } from 'src/app/Core/Services/Like.service';
 import { PostService } from 'src/app/Core/Services/Post.service';
@@ -17,7 +19,8 @@ export class HomeComponent implements OnInit {
   user : any;
   posts : Post[];
   nbPostLikes: Map<string, Number>;
-  constructor(private cookieService: CookieService, private postService: PostService,private likeService : LikeService) {
+  constructor(private cookieService: CookieService, private postService: PostService,private likeService : LikeService,
+    private router: Router,private authService : AuthService) {
     this.nbPostLikes = new Map<string,Number>();
    }
 
@@ -47,4 +50,8 @@ export class HomeComponent implements OnInit {
       document.getElementsByTagName('head')[0].appendChild(node); 
     }
    }
+   logout(){
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
 }

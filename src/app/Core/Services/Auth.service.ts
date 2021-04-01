@@ -42,4 +42,10 @@ export class AuthService {
         this.user = null;
     }
 
+    getUserById(id : Number){
+        return this.http.get<User>(environment.BASE_END_POINT + 'auth/user/'+id);
+    }
+    updateUser(user : User){
+        return this.http.post<User>(environment.BASE_END_POINT + 'auth/user/edit/'+user.id,user);
+    }
 }

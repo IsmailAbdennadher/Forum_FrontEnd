@@ -2,12 +2,14 @@ export class User {
     id?: number;
     username?: string;
     password?: string;
-    firstName: string;
-    lastName?: string;
+    nom: string;
+    prenom?: string;
+    dateofbirth: Date;
+    name ? : string;
     token?: string;
     email: string;
     address?: string;
     phone?: string;
-  profileImageFileName?: string;
+    picture?: string;
 
 }

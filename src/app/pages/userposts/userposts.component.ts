@@ -25,7 +25,8 @@ export class UserpostsComponent implements OnInit {
   nbPostLikes: Map<string, Number>;
 
   constructor(private cookieService: CookieService, private postService: PostService, private formBuilder: FormBuilder,
-    private commentService : CommentService,private authService : AuthService,private router: Router,private likeService : LikeService) {
+    private commentService : CommentService,private authService : AuthService,private router: Router,
+    private likeService : LikeService) {
       this.nbUserComments = 0;
       this.nbUserPosts = 0;
       this.nbPostLikes = new Map<string,Number>();
